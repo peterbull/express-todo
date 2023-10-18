@@ -40,6 +40,13 @@ app.get("/todos", async (req, res) => {
 })
 
 // get a todo
+app.get("/todos/:id", async (req, res) => {
+    try {
+        console.log(req.params)
+    } catch (err) {
+        console.error(err.message);
+    }
+})
 
 // update a todo
 
