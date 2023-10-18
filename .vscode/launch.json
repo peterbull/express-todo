@@ -15,7 +15,7 @@
             "skipFiles": [
                 "<node_internals>/**/*.js",
                 "${workspaceFolder}/client/node_modules/**/*.js",
-                "${workspaceFolder}/api/node_modules/**/*.js"
+                "${workspaceFolder}/server/node_modules/**/*.js"
             ]
         }
     ]
