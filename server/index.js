@@ -14,7 +14,7 @@ app.use(express.json()); //req.body
 
 app.post("/todos", (req, res) => {
     try {
-        console.log(req.body);
+        console.log(req.body)
     } catch(err) {
         console.error(err.message);
     } 

@@ -9,8 +9,8 @@
             "request": "launch",
             // "preLaunchTask": "npm: start",
             "type": "chrome",
-            "url": "http://localhost:9000",
-            // "program": "${workspaceFolder}/api/app.js",
+            "url": "http://localhost:5000/",
+            "program": "${workspaceFolder}/server/index.js",
             "webRoot": "${workspaceFolder}",
             "skipFiles": [
                 "<node_internals>/**/*.js",
