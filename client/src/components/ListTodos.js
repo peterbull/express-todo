@@ -1,14 +1,15 @@
 import React, { Fragment, useEffect, useState } from "react";
 
 const ListTodos = () => {
-  
+  const [todos, setTodos] = useState([]); 
+
   const getTodos = async () => {
     try {
 
       const response = await fetch("http://localhost:5000/todos");
       const jsonData = await response.json();
 
-      console.log(jsonData)
+      setTodos(jsonData);
     } catch (err) {
       console.log(err.message);
     }
@@ -16,6 +17,7 @@ const ListTodos = () => {
 
   useEffect(() => {
     getTodos();
+
   });
 
   return <Fragment>
@@ -33,6 +35,13 @@ const ListTodos = () => {
                     <td>Doe</td>
                     <td>john@example.com</td>
                 </tr> */}
+        {todos.map((todos, index) => (
+          <tr key={index}>
+            <td>{todos.description}</td>
+            <td>Edit</td>
+            <td>Delete</td>
+          </tr>
+        ))}
       </tbody>
     </table>
   </Fragment>;
