@@ -2,7 +2,20 @@ import React, { Fragment, useState } from "react";
 
 const EditTodo = ({ todo }) => {
     const [description, setDescription] = useState(todo.description);
-    
+
+    const onSubmitForm = async e => {
+        // e.preventDefault();
+        try {
+            const body = { description };
+            const response = await fetch(`http://localhost:5000/todos/${todo.id}`, {
+                method: "PATCH",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(body)
+            })
+        } catch (err) {
+            console.error(err.message);
+        }
+    };
     return (
         <Fragment>
             <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal">
@@ -19,11 +32,13 @@ const EditTodo = ({ todo }) => {
                         </div>
 
                         <div class="modal-body">
-                            <input type="text" className="form-control" value={description}/>
+                            <input type="text" className="form-control" value={description}
+                                onChange={e => setDescription(e.target.value)} />
                         </div>
 
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-warning" data-dismiss="modal">
+                            <button type="button" class="btn btn-warning" data-dismiss="modal" 
+                                onClick={onSubmitForm}>
                                 Edit
                             </button>
                             <button type="button" class="btn btn-warning" data-dismiss="modal">
