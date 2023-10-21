@@ -7,22 +7,23 @@ const EditTodo = ({ todo }) => {
         // e.preventDefault();
         try {
             const body = { description };
-            const response = await fetch(`http://localhost:5000/todos/${todo.id}`, {
-                method: "PATCH",
+            const response = await fetch(`http://localhost:5000/todos/${todo.todo_id}`, {
+                method: "PUT",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(body)
-            })
+            });
         } catch (err) {
             console.error(err.message);
         }
     };
+
     return (
         <Fragment>
-            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal">
+            <button type="button" class="btn btn-warning" data-toggle="modal" data-target={`#id${todo.todo_id}`}>
                 Edit
             </button>
 
-            <div class="modal" id="myModal">
+            <div class="modal" id={`id${todo.todo_id}`}>
                 <div class="modal-dialog">
                     <div class="modal-content">
 
@@ -37,7 +38,7 @@ const EditTodo = ({ todo }) => {
                         </div>
 
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-warning" data-dismiss="modal" 
+                            <button type="button" class="btn btn-warning" data-dismiss="modal"
                                 onClick={onSubmitForm}>
                                 Edit
                             </button>
