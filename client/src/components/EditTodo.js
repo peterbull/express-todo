@@ -3,8 +3,8 @@ import React, { Fragment, useState } from "react";
 const EditTodo = ({ todo }) => {
     const [description, setDescription] = useState(todo.description);
 
-    const onSubmitForm = async e => {
-        // e.preventDefault();
+    const updateDescription = async e => {
+        e.preventDefault();
         try {
             const body = { description };
             const response = await fetch(`http://localhost:5000/todos/${todo.todo_id}`, {
@@ -39,7 +39,7 @@ const EditTodo = ({ todo }) => {
 
                         <div class="modal-footer">
                             <button type="button" class="btn btn-warning" data-dismiss="modal"
-                                onClick={onSubmitForm}>
+                                onClick = {e => updateDescription(e)}>
                                 Edit
                             </button>
                             <button type="button" class="btn btn-warning" data-dismiss="modal">
