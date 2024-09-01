@@ -9,7 +9,7 @@
             "request": "launch",
             // "preLaunchTask": "npm: start",
             "type": "chrome",
-            "url": "http://localhost:5000/",
+            "url": "http://localhost:3001/",
             "program": "${workspaceFolder}/server/index.js",
             "webRoot": "${workspaceFolder}",
             "skipFiles": [
